@@ -8,7 +8,7 @@ function createFeatures(earthquakeData) {
 
     function onEachFeature(feature, layer) {
       layer.bindPopup(
-        "<h3>" + feature.properties.title + "<br>" + "Magnitude: " + "</h3>" 
+        "<h3>" + feature.properties.title + "<br>" +"</h3>" 
         + "<hr><p>" + new Date(feature.properties.time) + "</p>");
     }
 
@@ -87,14 +87,14 @@ function createMap(earthquakes) {
     var myMap = L.map("map", {
       center: [0, 0],
       zoom: 2,
-      layers: [dark, earthquakes]
+      layers: [satellite, earthquakes]
     });
   
     L.control.layers(baseMaps, overlayMaps, {
       collapsed: false
     }).addTo(myMap);
 
-    var legend = L.control({ position: "bottomright" });
+    var legend = L.control({ position: "bottomleft" });
 
     legend.onAdd = function() {
       var div = L.DomUtil.create("div", "info legend");
